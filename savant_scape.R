@@ -510,9 +510,10 @@ Savant_full<-sqldf('SELECT Savant_full.*, player_ids.mlb_name AS pitcher_name
 ##Selecting wanted columns
 colnames(Savant_full)
 
-Savant_full<-Savant_full %>%
-  select(game_date, home_team, away_team, home_score, away_score, inning, inning_topbot, post_home_score, post_away_score, balls, strikes, outs_when_up, if_fielding_alignment, of_fielding_alignment, batter, 'batter_name'=player_name, pitcher, pitcher_name, pitch_number, pitch_type, pitch_name ,release_pos_x, release_pos_z, release_pos_y, release_extension, release_speed, release_spin_rate, effective_speed, ax, ay, az, vx0, vy0, vz0, pfx_x, pfx_z, zone, plate_x, plate_z, launch_speed, launch_angle, barrel, hc_x, hc_y, hit_location, woba_value, babip_value, iso_value, estimated_ba_using_speedangle, estimated_woba_using_speedangle) %>%
+Savant_database<-Savant_full %>%
+  select(game_date, home_team, away_team, home_score, away_score, inning, inning_topbot, events, description, post_home_score, post_away_score, balls, strikes, outs_when_up, if_fielding_alignment, of_fielding_alignment, batter, 'batter_name'=player_name, pitcher, pitcher_name, pitch_number, pitch_type, pitch_name ,release_pos_x, release_pos_z, release_pos_y, release_extension, release_speed, release_spin_rate, effective_speed, ax, ay, az, vx0, vy0, vz0, pfx_x, pfx_z, zone, plate_x, plate_z, launch_speed, launch_angle, barrel, hc_x, hc_y, hit_location, woba_value, babip_value, iso_value, estimated_ba_using_speedangle, estimated_woba_using_speedangle) %>%
   mutate(ball_landing_x=hc_x-125.42,ball_landing_y=198.27-hc_y)
 
 #Save Database as File
-write.csv(Savant_full,'Savant_database.csv')
+write.csv(Savant_database,'Savant_database.csv')
+

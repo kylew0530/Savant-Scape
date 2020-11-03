@@ -1,4 +1,4 @@
 # Savant-Scape
 Code using baseballr package to scrape all pitch-by-pitch data from 2015-2020 regular season
 
-All years are set to save as specific csv files. There is customization at the bottom for what columns I wanted to pull from the scrape. Final line of code is saving all data in one csv file that can be loaded into your own database or however you please. This scrape takes a long time if you do it all at once. 
+All years are set to save as specific csv files. There is also an additional step to bind all the years together and save as one large csv file which you can dump into SQL so you can have your own Savant Database. This scrape takes a long time if you do it all at once. 

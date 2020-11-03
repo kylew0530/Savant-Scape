@@ -507,6 +507,8 @@ Savant_full<-sqldf('SELECT Savant_full.*, player_ids.mlb_name AS pitcher_name
                    LEFT JOIN player_ids
                    ON Savant_full.pitcher=player_ids.mlb_id')
 Savant_full$game_date<-as.Date(Savant_database$game_date, format='%Y-%m-%d')
+Savant_full<-tibble::rowid_to_column(test,'pitch_id')
+Savant_full$X<-NULL
 
 #Save Entire Database as File
 write.csv(Savant_full,'baseball_savant_database.csv')
